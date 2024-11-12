@@ -1,9 +1,9 @@
 import express from "express"
 import adminController from '../controllers/Admin.js'
-import isAdmin from "../middlware/verifyToken.js"
+import check from "../middlware/verifyToken.js"
 
 const AdminRoute = express.Router()
-AdminRoute.get("/getuser", isAdmin, adminController.GetUser)
-AdminRoute.get("/delete", isAdmin, adminController.DeletedUser)
+AdminRoute.get("/getuser", check.isManager, adminController.GetUser)
+AdminRoute.post("/delete/:id", check.isMainAdmin, adminController.DeletedUser)
 
 export default AdminRoute
