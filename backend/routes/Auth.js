@@ -4,7 +4,7 @@ import check from "../middlware/verifyToken.js"
 
 const AuthRoute = express.Router()
 
-AuthRoute.post("/register", check.isManager, authController.ragister)
+AuthRoute.post("/register", authController.ragister)
 AuthRoute.post("/role", check.isManager, authController.createRole)
 AuthRoute.post("/login", authController.Login)
 AuthRoute.post("/logout", authController.Logout)
